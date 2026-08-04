@@ -1,0 +1,37 @@
+generated: '2026-08-04'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: thedroneracingleague.com
+  https: false
+  note: TLS handshake rejected by the origin (tlsv1 alert internal error); no certificate
+    presented on 2026-08-04
+- host: www.drl.io
+  https: false
+  note: CNAME to proxy-ssl.webflow.com; TLS handshake failure on client hello, no certificate
+    presented on 2026-08-04
+- host: drl.io
+  https: false
+  note: TLS handshake rejected by the origin; HTTP 301 to https:// which then fails
+- host: metaverse.drl.io
+  https: true
+  note: Cloudflare Pages SPA ("DRL Interactive Marathon"); returns 200 text/html for every
+    path probed, including /openapi.json - catch-all, not an API
+- host: api.nft.drl.io
+  https: true
+  http_status: 503
+  note: Google-hosted; 503 on every path probed - decommissioned NFT platform API host
+domains:
+- domain: thedroneracingleague.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: drl.io
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+  dmarc_rua: dmarc-reports@drl.io

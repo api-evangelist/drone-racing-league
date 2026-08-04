@@ -1,0 +1,99 @@
+generated: '2026-08-04'
+method: searched
+source: live probes of Drone Racing League hosts
+note: >-
+  Full STEP 0b contract-discovery sweep across every Drone Racing League host found via
+  DNS and certificate-transparency enumeration (certspotter). Nothing was found: no
+  OpenAPI/Swagger, no GraphQL, no MCP endpoint, no A2A agent card, no /.well-known/
+  document. The two primary web properties (thedroneracingleague.com, www.drl.io,
+  drl.io) did NOT complete a TLS handshake on 2026-08-04 - the origins reject the
+  client hello and present no certificate - so every path on them is recorded as a
+  connection failure rather than an HTTP status. metaverse.drl.io is a Cloudflare Pages
+  single-page app that answers 200 text/html for EVERY path including /openapi.json and
+  /.well-known/agent-card.json; it is the classic SPA catch-all false positive and is
+  explicitly REJECTED, not counted as a hit. api.nft.drl.io is a decommissioned
+  Google-hosted NFT platform API returning 503 on every path. No WellKnown, SecurityTxt,
+  OpenAPI, MCPServer or AgentCard pointer is emitted because nothing was found.
+hosts:
+- host: https://thedroneracingleague.com
+  reachable: false
+  failure: tls-handshake-rejected
+  documents:
+  - {path: /.well-known/security.txt, status: null}
+  - {path: /.well-known/openid-configuration, status: null}
+  - {path: /.well-known/oauth-authorization-server, status: null}
+  - {path: /.well-known/api-catalog, status: null}
+  - {path: /.well-known/ai-plugin.json, status: null}
+  - {path: /.well-known/agent-card.json, status: null}
+  - {path: /.well-known/agent.json, status: null}
+  - {path: /openapi.json, status: null}
+  - {path: /swagger.json, status: null}
+  - {path: /api-docs, status: null}
+  - {path: /llms.txt, status: null}
+- host: https://www.drl.io
+  reachable: false
+  failure: tls-handshake-failure-on-client-hello
+  note: CNAME proxy-ssl.webflow.com / proxy-ssl-geo-2.webflow.com - Webflow edge is not
+    serving a certificate for this hostname
+  documents:
+  - {path: /.well-known/security.txt, status: null}
+  - {path: /.well-known/openid-configuration, status: null}
+  - {path: /.well-known/oauth-authorization-server, status: null}
+  - {path: /.well-known/api-catalog, status: null}
+  - {path: /.well-known/ai-plugin.json, status: null}
+  - {path: /.well-known/agent-card.json, status: null}
+  - {path: /.well-known/agent.json, status: null}
+  - {path: /openapi.json, status: null}
+  - {path: /swagger.json, status: null}
+  - {path: /api-docs, status: null}
+  - {path: /llms.txt, status: null}
+- host: https://drl.io
+  reachable: false
+  failure: tls-handshake-rejected
+  documents:
+  - {path: /.well-known/security.txt, status: null}
+  - {path: /.well-known/agent-card.json, status: null}
+  - {path: /.well-known/agent.json, status: null}
+  - {path: /openapi.json, status: null}
+  - {path: /llms.txt, status: null}
+- host: https://metaverse.drl.io
+  reachable: true
+  rejected: true
+  rejection_reason: >-
+    Cloudflare Pages SPA catch-all - returns HTTP 200 with content-type text/html for
+    every path probed, including /openapi.json, /swagger.json, /graphql, /llms.txt and
+    /.well-known/agent-card.json. No path parses as JSON/YAML/OpenAPI/AgentCard.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, valid: false}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, valid: false}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, valid: false}
+  - {path: /openapi.json, status: 200, content_type: text/html, valid: false}
+  - {path: /openapi.yaml, status: 200, content_type: text/html, valid: false}
+  - {path: /swagger.json, status: 200, content_type: text/html, valid: false}
+  - {path: /v1/openapi.json, status: 200, content_type: text/html, valid: false}
+  - {path: /api-docs, status: 200, content_type: text/html, valid: false}
+  - {path: /docs, status: 200, content_type: text/html, valid: false}
+  - {path: /llms.txt, status: 200, content_type: text/html, valid: false}
+  - {path: /graphql, status: 200, content_type: text/html, valid: false}
+- host: https://api.nft.drl.io
+  reachable: true
+  note: Google-hosted (ghs.googlehosted.com); decommissioned DRL NFT platform API
+  documents:
+  - {path: /openapi.json, status: 503}
+  - {path: /openapi.yaml, status: 503}
+  - {path: /swagger.json, status: 503}
+  - {path: /v1/openapi.json, status: 503}
+  - {path: /api-docs, status: 503}
+  - {path: /docs, status: 503}
+  - {path: /llms.txt, status: 503}
+  - {path: /graphql, status: 503}
+  - {path: /.well-known/security.txt, status: 503}
+  - {path: /.well-known/agent-card.json, status: 503}
+  - {path: /.well-known/agent.json, status: 503}
+hosts_enumerated:
+  source: https://api.certspotter.com/v1/issuances (certificate transparency)
+  drl.io: [api.nft.drl.io, cms.nft.drl.io, metaverse.drl.io, nft.drl.io]
+  thedroneracingleague.com: [gear.thedroneracingleague.com, mail.thedroneracingleague.com]
+  note: >-
+    gear.thedroneracingleague.com is a Shopify storefront (drl-swag.myshopify.com) and
+    did not complete a TLS handshake. nft.drl.io and cms.nft.drl.io return 500/503.

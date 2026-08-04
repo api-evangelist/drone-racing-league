@@ -1,10 +1,21 @@
 aid: drone-racing-league
 name: Drone Racing League
-description: 'Drone Racing League is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'The Drone Racing League (DRL) is a New York-based professional drone racing
+  property founded in 2015 by Nicholas Horbaczewski, staging first-person-view (FPV) races
+  in which pilots fly identical, league-built quadcopters - the Racer series - through
+  three-dimensional courses in stadiums, arenas and landmark venues at speeds above 80 mph.
+  DRL designs its own racing drones, timing and telemetry hardware, produces and distributes
+  its race broadcasts across NBC, Sky Sports, ProSiebenSat.1 and streaming platforms, and
+  operates the DRL Simulator, an FPV racing game on Steam, PlayStation and Xbox that feeds
+  the Swatch DRL Tryouts esports pipeline used to recruit professional pilots. The company
+  was acquired by Infinite Reality (now Napster) in April 2024. DRL publishes no public
+  developer portal, API documentation, SDKs or machine-readable API specification, and as
+  of the 2026-08-04 enrichment pass its primary web properties (thedroneracingleague.com,
+  drl.io) were not completing a TLS handshake.'
 url: https://raw.githubusercontent.com/api-evangelist/drone-racing-league/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
+x-harvest-source-url: https://forgeglobal.com/drone-racing-league_stock/
 x-tier: stub
 x-tier-reason: harvest
 specificationVersion: '0.20'
@@ -12,6 +23,15 @@ created: '2026-08-04'
 modified: '2026-08-04'
 tags:
 - Company
+- Sports
+- Esports
+- Drones
+- Racing
+- Media
+- Entertainment
+- Broadcasting
+- Gaming
+- Simulation
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +39,20 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/drone-racing-league-domain-security.yml
 - type: Website
-  url: https://forgeglobal.com/drone-racing-league_stock/
+  url: https://thedroneracingleague.com/
+- type: TermsOfService
+  url: https://thedroneracingleague.com/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://thedroneracingleague.com/privacy-policy/
+- type: GitHubOrganization
+  url: https://github.com/thedroneracingleague
+- type: LLMsTxt
+  url: llms/drone-racing-league-llms.txt
+x-enrichment:
+  date: '2026-08-04'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1

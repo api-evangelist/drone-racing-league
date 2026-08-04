@@ -42,5 +42,25 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Drone Racing League is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/drone-racing-league_stock/
+The Drone Racing League (DRL) is a New York-based professional drone racing property founded in
+2015 by Nicholas Horbaczewski. Pilots fly identical, league-built FPV quadcopters (the Racer
+series) through three-dimensional courses in stadiums, arenas and landmark venues at speeds above
+80 mph. DRL designs its own racing drones, timing and telemetry hardware, produces its race
+broadcasts for NBC, Sky Sports and ProSiebenSat.1, and operates the DRL Simulator on Steam,
+PlayStation and Xbox, which feeds the Swatch DRL Tryouts esports pipeline used to recruit
+professional pilots. DRL was acquired by Infinite Reality (now Napster) in April 2024.
+
+**DRL publishes no public API, developer portal, SDK, or machine-readable specification.** A full
+contract-discovery sweep on 2026-08-04 across every host resolved from DNS and certificate
+transparency found no OpenAPI/Swagger, no GraphQL endpoint, no MCP server, no A2A agent card, and
+no `/.well-known/` document. The probe log is in
+[`well-known/drone-racing-league-well-known.yml`](well-known/drone-racing-league-well-known.yml).
+
+As of that pass, DRL's primary web properties (`thedroneracingleague.com`, `www.drl.io`, `drl.io`)
+were not completing a TLS handshake — the origins reject the client hello and present no
+certificate. See
+[`security/drone-racing-league-domain-security.yml`](security/drone-racing-league-domain-security.yml).
+
+- https://thedroneracingleague.com/
+- https://www.drl.io/
+- https://github.com/thedroneracingleague (official org, zero public repositories)

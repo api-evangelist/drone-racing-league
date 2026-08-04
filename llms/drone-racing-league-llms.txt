@@ -1,0 +1,39 @@
+# Drone Racing League
+
+> The Drone Racing League (DRL) is a New York-based professional drone racing property founded in 2015 by Nicholas Horbaczewski. Pilots fly identical, league-built FPV quadcopters (the Racer series) through three-dimensional courses in stadiums, arenas and landmark venues at speeds above 80 mph. DRL designs its own drones, timing and telemetry hardware, produces its race broadcasts for NBC, Sky Sports and ProSiebenSat.1, and operates the DRL Simulator on Steam, PlayStation and Xbox, which feeds the Swatch DRL Tryouts esports pipeline used to recruit professional pilots. DRL was acquired by Infinite Reality (now Napster) in April 2024. **DRL publishes no public API, developer portal, SDK, or machine-readable specification.**
+
+## Company
+
+- [The Drone Racing League](https://thedroneracingleague.com/): Official site (did not complete a TLS handshake on 2026-08-04).
+- [drl.io](https://www.drl.io/): Secondary official site, Webflow-hosted (did not complete a TLS handshake on 2026-08-04).
+- [About DRL](https://www.drl.io/about-drl): League background.
+- [Schedule](https://www.drl.io/schedule): Race season schedule.
+- [Wikipedia — Drone Racing League](https://en.wikipedia.org/wiki/Drone_Racing_League): Independent overview of the league, drone generations and broadcast partners.
+
+## Products
+
+- [DRL Simulator](https://www.drl.io/drl-sim): FPV racing game and pilot training simulator.
+- [The Drone Racing League Simulator on Steam](https://store.steampowered.com/app/641780/The_Drone_Racing_League_Simulator/): PC distribution.
+- [The Drone Racing League Simulator on PlayStation](https://store.playstation.com/en-us/concept/10001079/): Console distribution.
+- [DRL Gear](https://gear.thedroneracingleague.com/): Shopify merchandise storefront.
+
+## Legal
+
+- [Terms & Conditions](https://thedroneracingleague.com/terms-and-conditions/)
+- [Terms & Conditions (drl.io)](https://www.drl.io/terms-conditions)
+- [Privacy Policy](https://thedroneracingleague.com/privacy-policy/)
+
+## Source
+
+- [GitHub — thedroneracingleague](https://github.com/thedroneracingleague): Official organization ("The Drone Racing League / Software Repos", created 2016). Zero public repositories as of 2026-08-04.
+
+## Elsewhere
+
+- [The Drone Racing League on LinkedIn](https://www.linkedin.com/company/the-drone-racing-league/)
+
+## API surface
+
+DRL has no public developer program. A full contract-discovery sweep on 2026-08-04 across
+every host resolved from DNS and certificate transparency found no OpenAPI/Swagger, no
+GraphQL endpoint, no MCP server, no A2A agent card, and no `/.well-known/` document.
+See `well-known/drone-racing-league-well-known.yml` in this repository for the probe log.
